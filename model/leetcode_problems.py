@@ -42,6 +42,8 @@ class LeetcodeProblem(db.Model):
             HARD: '困难',
         }
 
+        ALL = [EASY, MEDIUM, HARD]
+
     @labels
     class IsLocked(Enum):
         """
@@ -54,6 +56,7 @@ class LeetcodeProblem(db.Model):
             UNLOCKED: '解锁',
             LOCKED: '上锁',
         }
+        ALL = [UNLOCKED, LOCKED]
 
     @labels
     class Type(Enum):
@@ -67,3 +70,5 @@ class LeetcodeProblem(db.Model):
             ALGO: '算法',
             DB: '数据库',
         }
+
+        ALL = [ALGO, DB]

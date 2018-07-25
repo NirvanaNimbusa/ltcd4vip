@@ -28,6 +28,11 @@ class Config(object):
     LOG_FORMAT = '%(asctime)-15s %(levelname)s %(filename)s %(lineno)d %(process)d %(message)s'
     LOG_DATE_FORMAT = "%a %d %b %Y %H:%M:%S"
 
+    # 分页设置
+    PAGE_SMALL = 10
+    PAGE_MEDIUM = 25
+    PAGE_LARGE = 50
+
 
 class TestConfig(Config):
     """

@@ -3,7 +3,7 @@
 __author__ = 'Jiateng Liang'
 from common.exception import api
 from flask import Blueprint, jsonify
-from service.leetcode_service import LeetCodeService
+from service.problem_service import LeetCodeService
 from bootstrap_init import app
 
 leetcode_bp = Blueprint('leetcode_bp', __name__)
