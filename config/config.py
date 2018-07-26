@@ -12,6 +12,8 @@ class Config(object):
     HTTP_HEAD = 'http://'
     HTTP_HOST = '127.0.0.1'
     HTTP_PORT = 5000
+    SECRET_KEY = 'ltcd4vip-dev'
+    WTF_CSRF_ENABLED = False
     # 数据库配置
     DB_USERNAME = 'root'
     DB_PASSWORD = '123456'
@@ -32,6 +34,9 @@ class Config(object):
     PAGE_SMALL = 10
     PAGE_MEDIUM = 25
     PAGE_LARGE = 50
+
+    # LeetCode账号集群
+    LEETCODE_ACCOUNTS = ['luxuan.wang@nyu.edu', '525=xuan']
 
 
 class TestConfig(Config):
