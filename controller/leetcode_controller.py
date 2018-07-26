@@ -3,7 +3,8 @@
 __author__ = 'Jiateng Liang'
 from common.exception import api
 from flask import Blueprint, jsonify
-from service.problem_service import LeetCodeService
+from service.problem_service import ProblemService
+from common.model_util import json_resp
 from bootstrap_init import app
 
 leetcode_bp = Blueprint('leetcode_bp', __name__)
@@ -22,9 +23,9 @@ def get_leetcode_problem_by_lid(lid):
         "content":"This is an example content"
     }
     """
-    problem = LeetCodeService.get_leetcode_problem_by_lid(lid)
-    data = {'id': problem.id, 'lid': problem.lid, 'title': problem.title, 'desc': problem.desc}
-    return jsonify(data)
+    problem = ProblemService.get_problem_by_lid(lid)
+
+    return jsonify(json_resp(problem))
 
 
 app.register_blueprint(leetcode_bp, url_prefix='/api/v1/problems')

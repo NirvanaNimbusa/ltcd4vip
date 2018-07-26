@@ -1,5 +1,6 @@
 # coding=utf-8
 'model转化工具类'
+from common.exception import ErrorCode
 
 __author__ = 'Jiateng Liang'
 
@@ -30,3 +31,8 @@ def dict2model(obj, dict):
     """
     obj.__dict__.update(dict)
     return obj
+
+
+def json_resp(obj):
+    data = model2dict(obj)
+    return {'code': ErrorCode.SUCCESS, 'msg': 'success', 'data': data}
