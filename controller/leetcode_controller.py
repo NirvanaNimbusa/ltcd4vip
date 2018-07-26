@@ -1,15 +1,14 @@
 # coding=utf-8
 'leetcode题目前端控制器'
 from flask_wtf import FlaskForm
-from wtforms.validators import DataRequired
 
 from common.form_util import validate_form
 
 __author__ = 'Jiateng Liang'
-from common.exception import api, ErrorCode
+from common.exception import api
 from flask import Blueprint, jsonify, request
 from service.problem_service import ProblemService
-from common.model_util import models2dict, model2dict, json_resp
+from common.model_util import model2dict, json_resp
 from bootstrap_init import app
 from wtforms import IntegerField
 
