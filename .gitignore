@@ -4,3 +4,4 @@ out
 gen
 .DS_STORE
 __pycache__
+*.pyc
