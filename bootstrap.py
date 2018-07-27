@@ -7,4 +7,4 @@ if __name__ == '__main__':
     from controller import leetcode_controller
     from controller.views import apidoc
 
-    app.run()
+    app.run(host=app.config['HTTP_HOST'], port=app.config['HTTP_PORT'])

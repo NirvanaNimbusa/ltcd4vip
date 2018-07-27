@@ -43,6 +43,14 @@ class TestConfig(Config):
     """
     测试环境配置
     """
+    # 应用配置
+    HTTP_HOST = '0.0.0.0'
+    HTTP_PORT = 12580
+    SECRET_KEY = 'ltcd4vip-test'
+
+    # 日志配置
+    LOG_CONSOLE = False
+    LOG_PATH = '/root/repos/log/ltcd4vip/log.log'
 
 
 class ProdConfig(Config):
