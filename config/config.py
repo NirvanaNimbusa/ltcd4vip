@@ -53,8 +53,11 @@ class TestConfig(Config):
     LOG_PATH = '../log/ltcd4vip/log.log'
 
     # 数据库
-    # DB_USERNAME = 'liangjiateng_blog_prod'
-    # DB_PASSWORD = '71E36E4C76607A954FEC1DC390EDAE57'
+    DB_USERNAME = 'ltcd4vip'
+    DB_PASSWORD = 'ltcd4vip_rw'
+    DB_HOST = '172.17.0.1'
+    DB_NAME = 'blog'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://' + DB_USERNAME + ':' + DB_PASSWORD + '@' + DB_HOST + '/' + DB_NAME + '?charset=utf8'
 
 
 class ProdConfig(Config):
