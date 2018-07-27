@@ -50,10 +50,18 @@ class TestConfig(Config):
 
     # 日志配置
     LOG_CONSOLE = False
-    LOG_PATH = '/root/repos/log/ltcd4vip/log.log'
+    LOG_PATH = '../log/ltcd4vip/log.log'
+
+    # 数据库
+    # DB_USERNAME = 'liangjiateng_blog_prod'
+    # DB_PASSWORD = '71E36E4C76607A954FEC1DC390EDAE57'
 
 
 class ProdConfig(Config):
     """
     生产环境配置
     """
+    # 应用配置
+    HTTP_HOST = 'www.liangjiateng.cn'
+    HTTP_PORT = 12306
+    SECRET_KEY = 'ltcd4vip-prod'
