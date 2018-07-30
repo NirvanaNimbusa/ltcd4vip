@@ -176,7 +176,7 @@ def list_leetcode_problems_by_lid():
     form = ListProblemsForm(formdata=request.args)
     validate_form(form)
     page_size = app.config['PAGE_LARGE']
-    if form.order is not None and form.order.data == 1:
+    if form.order is not None and form.order.data == 0:
         problems = ProblemService.list_problems_order_by_lid_asc(form.page.data, page_size,
                                                                  difficulty=form.difficulty.data,
                                                                  is_locked=form.is_locked.data, type=form.type.data)
@@ -244,16 +244,16 @@ def list_leetcode_problems_by_frequency():
     validate_form(form)
     page_size = app.config['PAGE_LARGE']
 
-    if form.order is not None and form.order.data == 1:
-        problems = ProblemService.list_problems_order_by_frequency_desc(form.page.data, page_size,
-                                                                        difficulty=form.difficulty.data,
-                                                                        is_locked=form.is_locked.data,
-                                                                        type=form.type.data)
-    else:
+    if form.order is not None and form.order.data == 0:
         problems = ProblemService.list_problems_order_by_frequency_asc(form.page.data, page_size,
                                                                        difficulty=form.difficulty.data,
                                                                        is_locked=form.is_locked.data,
                                                                        type=form.type.data)
+    else:
+        problems = ProblemService.list_problems_order_by_frequency_desc(form.page.data, page_size,
+                                                                        difficulty=form.difficulty.data,
+                                                                        is_locked=form.is_locked.data,
+                                                                        type=form.type.data)
 
     return jsonify(json_resp(data=model2dict(problems)))
 
