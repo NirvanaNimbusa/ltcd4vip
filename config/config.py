@@ -16,7 +16,7 @@ class Config(object):
     WTF_CSRF_ENABLED = False
     # 数据库配置
     DB_USERNAME = 'root'
-    DB_PASSWORD = '123456'
+    DB_PASSWORD = ''
     DB_HOST = '127.0.0.1'
     DB_NAME = 'blog'
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://' + DB_USERNAME + ':' + DB_PASSWORD + '@' + DB_HOST + '/' + DB_NAME + '?charset=utf8'

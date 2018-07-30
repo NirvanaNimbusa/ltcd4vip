@@ -13,7 +13,6 @@ __author__ = 'Jiateng Liang'
 
 
 class ProblemService(object):
-
     @staticmethod
     def count_problems_by(difficulty=100, is_locked=100, type=100):
         """
@@ -275,8 +274,9 @@ class ProblemService(object):
         :return:
         """
 
-        res = db.session.query(LeetcodeTagInfo.name).all()
-        res = map(lambda x: x[0], res)
+        res = db.session.query(LeetcodeTagInfo.name, LeetcodeTagInfo.questions).all()
+        res = map(lambda x: (x[0], len(x[1][1:len(x[1]) - 1].split(","))), res)
+        res.sort(key=lambda x: x[1], reverse=True)
         return res
 
     @staticmethod
