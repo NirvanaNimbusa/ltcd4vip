@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-'comment'
+# coding=utf-8
+'api文档'
 import os
 
 from flask import make_response, redirect, request
