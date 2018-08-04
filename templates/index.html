@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>LeetCode全部题目-我的机器能学习</title>
+    <meta name="description" content="我的机器能学习">
+    <meta name="author" content="梁嘉腾">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <link rel="shortcut icon " type="images/x-icon" href="../static/img/avatar.jpg">
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +39,7 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -45,6 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
             <a class="navbar-brand" href="/leetcode/algorithm">LeetCode全部题目</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,7 +60,7 @@
                     <a href="http://www.liangjiateng.cn">Blog</a>
                 </li>
                 <li>
-                    <a href="http://www.liangjiateng.cn/services">Services</a>
+                    <a href="http://www.liangjiateng.cn/blog/services">Services</a>
                 </li>
             </ul>
         </div>
@@ -72,8 +75,8 @@
     <div class="row">
         <div class="col-lg-9">
             <h1>LeetCode Problems</h1>
-            <button type="button" class="btn btn-warning btn-lg">Algorithm</button>
-            <button type="button" class="btn btn-success btn-lg">Database</button>
+            <a type="button" class="btn btn-warning btn-lg" href="/leetcode/algorithm">Algorithm</a>
+            <a type="button" class="btn btn-success btn-lg" href="/leetcode/database">Database</a>
             <div class="row" style="margin-top: 30px;margin-bottom: 30px">
                 <div class="col-lg-6">
                     <div class="input-group">
@@ -95,13 +98,13 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#">Easy</a>
+                                <a href="/leetcode/{{ status['type'] }}?difficulty=1">Easy</a>
                             </li>
                             <li>
-                                <a href="#">Medium</a>
+                                <a href="/leetcode/{{ status['type'] }}?difficulty=2">Medium</a>
                             </li>
                             <li>
-                                <a href="#">Hard</a>
+                                <a href="/leetcode/{{ status['type'] }}?difficulty=3">Hard</a>
                             </li>
                         </ul>
                     </div>
@@ -115,7 +118,7 @@
                                 class="caret"></span></a></th>
                     <th>Title</th>
                     <th>
-                        <a href="/leetcode/{{ status['type'] }}?page={{ page }}&difficulty={{ status['difficulty'] }}&is_locked={{ 1 if status['is_locked'] == 0 else 0 }}&order={{ status['order'] }}&frequency={{ status['frequency'] }}">VIP<span
+                        <a href="/leetcode/{{ status['type'] }}?page=1&difficulty={{ status['difficulty'] }}&is_locked={{ 0 if status['is_locked'] == 1 else 1 }}&order={{ status['order'] }}&frequency={{ status['frequency'] }}">VIP<span
                                 class="caret"></span></a></th>
                     <th>Difficulty</th>
                     <th>

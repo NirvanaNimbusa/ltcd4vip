@@ -27,9 +27,9 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
 
         return db.session.query(func.count(LeetcodeProblem.qid)).filter(*filter_list).scalar()
 
@@ -86,9 +86,9 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
 
         cnt = ProblemService.count_problems_by(difficulty, is_locked, type)
         page_util = PageUtil(page, page_size, cnt)
@@ -120,9 +120,9 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
 
         cnt = ProblemService.count_problems_by(difficulty, is_locked, type)
         page_util = PageUtil(page, page_size, cnt)
@@ -154,9 +154,9 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
 
         cnt = ProblemService.count_problems_by(difficulty, is_locked, type)
         page_util = PageUtil(page, page_size, cnt)
@@ -189,9 +189,9 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
 
         cnt = ProblemService.count_problems_by(difficulty, is_locked, type)
         page_util = PageUtil(page, page_size, cnt)
@@ -270,7 +270,7 @@ class ProblemService(object):
         problems = db.session.query(LeetcodeTagInfo.questions).filter(LeetcodeTagInfo.name == name).first()[0]
         problems = problems[1:len(problems) - 1].split(',')
         problems = map(lambda qid: int(qid), problems)
-        cnt = len(problems)
+
         problems.sort()
         problems = tuple(problems)
         # 过滤
@@ -278,9 +278,11 @@ class ProblemService(object):
         if difficulty in LeetcodeProblem.Difficulty.ALL.value:
             filter_list.append(LeetcodeProblem.difficulty == difficulty)
         if is_locked in LeetcodeProblem.IsLocked.ALL.value:
-            filter_list.append(LeetcodeProblem.IsLocked == is_locked)
+            filter_list.append(LeetcodeProblem.is_locked == is_locked)
         if type in LeetcodeProblem.Type.ALL.value:
-            filter_list.append(LeetcodeProblem.Type == type)
+            filter_list.append(LeetcodeProblem.type == type)
+
+        cnt = len(LeetcodeProblem.query.filter(*filter_list).order_by(LeetcodeProblem.frequency.desc()).all())
 
         page_util = PageUtil(page, page_size, cnt)
 
