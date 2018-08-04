@@ -44,7 +44,7 @@ class TestConfig(Config):
     测试环境配置
     """
     # 应用配置
-    HTTP_HOST = '0.0.0.0'
+    HTTP_HOST = '206.81.6.248'
     HTTP_PORT = 12580
     SECRET_KEY = 'ltcd4vip-test'
 
@@ -65,6 +65,17 @@ class ProdConfig(Config):
     生产环境配置
     """
     # 应用配置
-    HTTP_HOST = 'www.liangjiateng.cn'
+    HTTP_HOST = '206.81.6.248'
     HTTP_PORT = 12306
     SECRET_KEY = 'ltcd4vip-prod'
+
+    # 日志配置
+    LOG_CONSOLE = False
+    LOG_PATH = '../log/ltcd4vip/log.log'
+
+    # 数据库
+    DB_USERNAME = 'ltcd4vip'
+    DB_PASSWORD = 'ltcd4vip_rw'
+    DB_HOST = '172.17.0.1'
+    DB_NAME = 'blog'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://' + DB_USERNAME + ':' + DB_PASSWORD + '@' + DB_HOST + '/' + DB_NAME + '?charset=utf8'

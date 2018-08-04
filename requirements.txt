@@ -4,3 +4,4 @@ flask-wtf
 pymysql
 requests
 enum
+tornado

@@ -14,7 +14,7 @@ if len(sys.argv) <= 1 or sys.argv[1] == 'dev':
 elif sys.argv[1] == 'test':
     app.config.from_object(TestConfig)
 elif sys.argv[1] == 'prod':
-    app.config.from_pyfile(ProdConfig)
+    app.config.from_object(ProdConfig)
 
 # 数据库初始化
 db = SQLAlchemy(app)
