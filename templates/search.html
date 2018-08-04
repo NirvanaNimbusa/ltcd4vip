@@ -12,7 +12,7 @@
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <style>
@@ -72,8 +72,6 @@
     <div class="row">
         <div class="col-lg-9">
             <h1>LeetCode Problems</h1>
-            <button type="button" class="btn btn-warning btn-lg">Algorithm</button>
-            <button type="button" class="btn btn-success btn-lg">Database</button>
             <div class="row" style="margin-top: 30px;margin-bottom: 30px">
                 <div class="col-lg-6">
                     <div class="input-group">
@@ -88,43 +86,19 @@
                         </script>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Difficulty
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">Easy</a>
-                            </li>
-                            <li>
-                                <a href="#">Medium</a>
-                            </li>
-                            <li>
-                                <a href="#">Hard</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- /.col-lg-6 -->
             </div>
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>
-                        <a href="/leetcode/{{ status['type'] }}?page={{ page }}&difficulty={{ status['difficulty'] }}&is_locked={{ status['is_locked'] }}&order={{ 1 if status['order'] == 0 else 0 }}">#<span
-                                class="caret"></span></a></th>
+                    <th>#</th>
                     <th>Title</th>
-                    <th>
-                        <a href="/leetcode/{{ status['type'] }}?page={{ page }}&difficulty={{ status['difficulty'] }}&is_locked={{ 1 if status['is_locked'] == 0 else 0 }}&order={{ status['order'] }}&frequency={{ status['frequency'] }}">VIP<span
-                                class="caret"></span></a></th>
+                    <th>VIP</th>
                     <th>Difficulty</th>
-                    <th>
-                        <a href="/leetcode/{{ status['type'] }}?page={{ page }}&difficulty={{ status['difficulty'] }}&is_locked={{ status['is_locked'] }}&order={{ status['order'] }}&frequency=1">Frequency<span
-                                class="caret"></span></a></th>
+                    <th>Frequency</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for p in data['data'] %}
+                {% for p in problems %}
                     <tr>
                         <td>{{ p['lid'] }}</td>
                         <td><a
@@ -159,22 +133,6 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <!-- Pagination -->
-            <ul class="pagination justify-content-center mb-4">
-                {% for i in range(1, data['max_page'] + 1) %}
-                    {% if i == page %}
-                        <li class="page-item active">
-                            <a href="/leetcode/{{ status['type'] }}?page={{ i }}&difficulty={{ status['difficulty'] }}&is_locked={{ status['is_locked'] }}&order={{ status['order'] }}&frequency={{ status['frequency'] }}"
-                               class="page-link active">{{ i }}</a>
-                        </li>
-                    {% else %}
-                        <li class="page-item">
-                            <a href="/leetcode/{{ status['type'] }}?page={{ i }}&difficulty={{ status['difficulty'] }}&is_locked={{ status['is_locked'] }}&order={{ status['order'] }}&frequency={{ status['frequency'] }}"
-                               class="page-link active">{{ i }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
         </div>
         <div class="col-lg-3">
             <h3>Companies</h3>
@@ -201,10 +159,10 @@
     <!-- /.container -->
 </footer>
 <!-- jQuery Version 1.11.1 -->
-<script src="../static/js/jquery.js"></script>
+<script src="../../static/js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../static/js/bootstrap.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -209,7 +209,7 @@ class ProblemService(object):
         return page_util
 
     @staticmethod
-    def search_problems_by_title(title, page, page_size):
+    def search_problems_by_title(title):
         """
         根据名称模糊匹配
         :param title:
@@ -217,28 +217,14 @@ class ProblemService(object):
         :param page_size:
         :return:
         """
-        if page <= 0 or page_size <= 0:
-            raise ServiceException(ErrorCode.PARAM_ERROR, u'page或者page_size参数错误')
-
-        cnt = db.session.query(func.count(LeetcodeProblem.qid)).filter(
-            LeetcodeProblem.title.like('%' + title + '%')).scalar()
-
-        page_util = PageUtil(page, page_size, cnt)
 
         res = LeetcodeProblem.query.filter(LeetcodeProblem.title.like('%' + title + '%')).order_by(
-            LeetcodeProblem.lid.asc()).slice(
-            page_util.get_start(),
-            page_util.get_end()).all()
+            LeetcodeProblem.lid.asc()).all()
 
-        page_util.data = models2dict(res)
-
-        for data in page_util.data:
-            del data['code_def']
-            del data['desc']
-        return page_util
+        return res
 
     @staticmethod
-    def search_problems_by_content(content, page, page_size):
+    def search_problems_by_content(content):
         """
         根据内容模糊匹配
         :param title:
@@ -246,26 +232,11 @@ class ProblemService(object):
         :param page_size:
         :return:
         """
-        if page <= 0 or page_size <= 0:
-            raise ServiceException(ErrorCode.PARAM_ERROR, u'page或者page_size参数错误')
-
-        cnt = db.session.query(func.count(LeetcodeProblem.qid)).filter(
-            LeetcodeProblem.title.like('%' + content + '%')).scalar()
-
-        page_util = PageUtil(page, page_size, cnt)
 
         res = LeetcodeProblem.query.filter(LeetcodeProblem.title.like('%' + content + '%')).order_by(
-            LeetcodeProblem.lid.asc()).slice(
-            page_util.get_start(),
-            page_util.get_end()).all()
+            LeetcodeProblem.lid.asc()).all()
 
-        page_util.data = models2dict(res)
-
-        for data in page_util.data:
-            del data['code_def']
-            del data['desc']
-
-        return page_util
+        return res
 
     @staticmethod
     def list_companies_order_by_problem_cnt():

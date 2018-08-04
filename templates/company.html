@@ -76,10 +76,16 @@
             <button type="button" class="btn btn-success btn-lg">Database</button>
             <div class="row" style="margin-top: 30px;margin-bottom: 30px">
                 <div class="col-lg-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">Go</span>
-                        <input type="text" class="form-control"
+                   <div class="input-group">
+                        <span class="input-group-addon" onclick="search()" style="cursor: pointer">Go</span>
+                        <input id="search-content" type="text" class="form-control"
                                placeholder="Search question titles, description or IDs"/>
+                        <script>
+                            function search() {
+                                var content = $("#search-content").val()
+                                window.location.href = '/leetcode/search/' + content
+                            }
+                        </script>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
                 <div class="col-lg-6">

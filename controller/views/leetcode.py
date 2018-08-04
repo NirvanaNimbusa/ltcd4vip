@@ -5,8 +5,9 @@ from flask_wtf import FlaskForm
 from wtforms import IntegerField
 
 from bootstrap_init import app
+from common.exception import api
 from common.form_util import validate_form
-from common.model_util import model2dict
+from common.model_util import model2dict, models2dict
 from service.problem_service import ProblemService
 
 __author__ = 'Jiateng Liang'
@@ -22,6 +23,7 @@ class ListProblemsForm(FlaskForm):
 
 
 @app.route('/leetcode/<type>')
+@api
 def main(type):
     form = ListProblemsForm(formdata=request.args)
     validate_form(form)
@@ -58,6 +60,7 @@ def main(type):
 
 
 @app.route('/leetcode/<company>/<type>')
+@api
 def company(company, type):
     form = ListProblemsForm(formdata=request.args)
     validate_form(form)
@@ -84,7 +87,21 @@ def company(company, type):
 
 
 @app.route('/leetcode/<title_slug>/description')
+@api
 def desc(title_slug):
     problem = ProblemService.get_problem_by_title_slug(title_slug)
     companies = ProblemService.list_companies_order_by_problem_cnt()
     return render_template('desc.html', problem=model2dict(problem), companies=companies)
+
+
+@app.route('/leetcode/search/<content>')
+@api
+def search(content):
+    companies = ProblemService.list_companies_order_by_problem_cnt()
+    try:
+        problem = ProblemService.get_problem_by_lid(content)
+        return render_template('search.html', problems=[model2dict(problem)], companies=companies)
+    except Exception as e:
+        problems = ProblemService.search_problems_by_title(content)
+        problems.extend(ProblemService.search_problems_by_content(content))
+        return render_template('search.html', problems=models2dict(problems), companies=companies)
