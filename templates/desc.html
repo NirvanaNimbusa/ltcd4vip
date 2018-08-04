@@ -12,14 +12,14 @@
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/markdown.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,115 +33,78 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">LeetCode全部题目</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Problems</a>
-                    </li>
-                    <li>
-                        <a href="#">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/leetcode/algorithm">LeetCode全部题目</a>
         </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container" style="min-height: 650px">
-        <div class="alert alert-info" role="alert">公告公告公告</div>
-        <div class="row">
-            <div class="col-lg-9 text-center">
-                <h1>LeetCode Problems</h1>
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
-                <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Vip</th>
-                            <th>Difficulty</th>
-                            <th>Frequency</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td style="text-align: left">John</td>
-                            <td style="text-align: left">John</td>
-                            <td style="text-align: left">John</td>
-                            <td style="text-align: left">John</td>
-                            <td style="text-align: left">John</td>
-                          </tr>
-                        </tbody>
-                </table>
-            </div>
-            <div class="col-lg-3 text-center">
-                <h3>Companies</h3>
-                <div class="list-group">
-                        <a href = "#" class="list-group-item">
-                          <span class="badge">14</span>
-                          Facebook
-                        </a>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-           <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
-                    <a class="page-link">1</a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/leetcode/algorithm">Problems</a>
                 </li>
-        </ul>
+                <li>
+                    <a href="http://www.liangjiateng.cn">Blog</a>
+                </li>
+                <li>
+                    <a href="http://www.liangjiateng.cn/services">Services</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
-    <!-- Footer -->
-    <footer class="py-5 bg-dark" style="height: 100px;background: #101010">
-        <div class="container">
-            <p class="m-0 text-center text-white" style="margin-top: 40px;color: #9d9d9d">Copyright &copy; Jiateng Liang's Blog 2018</p>
-        </div>
-        <!-- /.container -->
-    </footer>
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
+</nav>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+<!-- Page Content -->
+<div class="container" style="min-height: 650px">
+    <div class="alert alert-info" role="alert">公告公告公告</div>
+    <div class="row">
+        <div class="col-lg-9">
+            <h1>{{ problem['lid'] }}.{{ problem['title'] }}</h1>
+            <div class="markdown-body" style="margin-top: 20px">
+                {{ problem['desc']| safe }}
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <h3>Companies</h3>
+            <div class="list-group">
+                {% for com in companies %}
+                    <a href="#" class="list-group-item">
+                        <span class="badge">{{ com[1] }}</span>
+                        {{ com[0] }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark" style="height: 100px;background: #101010">
+    <div class="container">
+        <p class="m-0 text-center text-white" style="margin-top: 40px;color: #9d9d9d">Copyright &copy; Jiateng Liang's
+            Blog 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
+<!-- jQuery Version 1.11.1 -->
+<script src="../../static/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>

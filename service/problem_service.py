@@ -313,7 +313,7 @@ class ProblemService(object):
 
         page_util = PageUtil(page, page_size, cnt)
 
-        res = LeetcodeProblem.query.filter(*filter_list).order_by(LeetcodeProblem.frequency.asc()).slice(
+        res = LeetcodeProblem.query.filter(*filter_list).order_by(LeetcodeProblem.frequency.desc()).slice(
             page_util.get_start(),
             page_util.get_end()).all()
 

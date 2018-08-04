@@ -1,5 +1,5 @@
 # coding=utf-8
-'comment'
+'leetcode题目'
 from flask import render_template, request
 from flask_wtf import FlaskForm
 from wtforms import IntegerField
@@ -55,3 +55,36 @@ def main(type):
 
     return render_template('index.html', data=model2dict(problems), status=status, companies=companies,
                            page=form.page.data)
+
+
+@app.route('/leetcode/<company>/<type>')
+def company(company, type):
+    form = ListProblemsForm(formdata=request.args)
+    validate_form(form)
+    page_size = app.config['PAGE_LARGE']
+
+    if type == 'database':
+        p_type = 1
+    elif type == 'algorithm':
+        p_type = 0
+    else:
+        p_type = 100
+
+    problems = ProblemService.list_problems_by_company_name(company, form.page.data, page_size,
+                                                            difficulty=form.difficulty.data,
+                                                            is_locked=form.is_locked.data, type=p_type)
+
+    status = {'difficulty': form.difficulty.data, 'is_locked': form.is_locked.data, 'type': type,
+              'order': form.order.data, 'frequency': form.frequency.data}
+
+    companies = ProblemService.list_companies_order_by_problem_cnt()
+
+    return render_template('company.html', data=model2dict(problems), status=status, companies=companies,
+                           page=form.page.data, company_name=company)
+
+
+@app.route('/leetcode/<title_slug>/description')
+def desc(title_slug):
+    problem = ProblemService.get_problem_by_title_slug(title_slug)
+    companies = ProblemService.list_companies_order_by_problem_cnt()
+    return render_template('desc.html', problem=model2dict(problem), companies=companies)
