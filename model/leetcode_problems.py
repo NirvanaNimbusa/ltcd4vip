@@ -32,9 +32,9 @@ class LeetcodeProblem(db.Model):
         """
         0简单 1中等 2困难
         """
-        EASY = 0
-        MEDIUM = 1
-        HARD = 2
+        EASY = 1
+        MEDIUM = 2
+        HARD = 3
 
         __labels__ = {
             EASY: '简单',
