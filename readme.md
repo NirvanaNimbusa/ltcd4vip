@@ -1,6 +1,6 @@
 # Ltcd4vip
 
-![website](http://leetcode.liangjiateng.cn/leetcode/algorithm)
+[website](http://leetcode.liangjiateng.cn/leetcode/algorithm)
 
 ## Deploy
 
